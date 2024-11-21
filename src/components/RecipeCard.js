@@ -17,25 +17,23 @@ function RecipeCard({ recipeObj, onUpdate }) {
   };
 
   return (
-    <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={recipeObj.image} alt={recipeObj.title} style={{ height: '400px' }} />
-      <Card.Body>
-        <Card.Title>{recipeObj.title}</Card.Title>
-        {/* DYNAMIC LINK TO VIEW THE RECIPE DETAILS  */}
-        <Link href={`/recipe/${recipeObj.firebaseKey}`} passHref>
-          <Button variant="primary" className="m-2">
-            VIEW
+    <Link href={`/recipe/${recipeObj.firebaseKey}`} passHref>
+      {' '}
+      {/* Card is wrapped in a Link compomnent to make the whole card clickable for view details */}
+      <Card style={{ width: '18rem', margin: '10px' }}>
+        <Card.Img variant="top" src={recipeObj.image} alt={recipeObj.title} style={{ height: '400px' }} />
+        <Card.Body>
+          <Card.Title>{recipeObj.title}</Card.Title>
+          {/* DYNAMIC LINK TO EDIT THE RECIPE DETAILS  */}
+          <Link href={`/recipe/edit/${recipeObj.firebaseKey}`} passHref>
+            <Button variant="info">EDIT</Button>
+          </Link>
+          <Button variant="danger" onClick={deleteThisRecipe} className="m-2">
+            DELETE
           </Button>
-        </Link>
-        {/* DYNAMIC LINK TO EDIT THE RECIPE DETAILS  */}
-        <Link href={`/recipe/edit/${recipeObj.firebaseKey}`} passHref>
-          <Button variant="info">EDIT</Button>
-        </Link>
-        <Button variant="danger" onClick={deleteThisRecipe} className="m-2">
-          DELETE
-        </Button>
-      </Card.Body>
-    </Card>
+        </Card.Body>
+      </Card>
+    </Link>
   );
 }
 
