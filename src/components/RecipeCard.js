@@ -8,8 +8,6 @@ import Link from 'next/link';
 import { deleteRecipe } from '../api/recipeData';
 
 function RecipeCard({ recipeObj, onUpdate }) {
-  // FOR DELETE, WE NEED TO REMOVE THE RECIPE AND HAVE THE VIEW RERENDER,
-  // SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE RECIPES
   const deleteThisRecipe = () => {
     if (window.confirm(`Delete ${recipeObj.name}?`)) {
       deleteRecipe(recipeObj.firebaseKey).then(() => onUpdate());
@@ -28,9 +26,11 @@ function RecipeCard({ recipeObj, onUpdate }) {
           <Link href={`/recipe/edit/${recipeObj.firebaseKey}`} passHref>
             <Button variant="info">EDIT</Button>
           </Link>
-          <Button variant="danger" onClick={deleteThisRecipe} className="m-2">
-            DELETE
-          </Button>
+          <Link href="/">
+            <Button variant="danger" onClick={deleteThisRecipe} className="m-2">
+              DELETE
+            </Button>
+          </Link>
         </Card.Body>
       </Card>
     </Link>
