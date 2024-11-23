@@ -16,6 +16,20 @@ const getRecipes = (userId) =>
       .catch(reject);
   });
 
+// GET Single Recipe
+const getSingleRecipe = (firebaseKey) =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/recipe/${firebaseKey}.json`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => resolve(data))
+      .catch(reject);
+  });
+
 // CREATE Recipe
 const createRecipe = (payload) =>
   new Promise((resolve, reject) => {
@@ -45,4 +59,4 @@ const deleteRecipe = (firebaseKey) =>
       .catch(reject);
   });
 
-export { getRecipes, createRecipe, deleteRecipe };
+export { getRecipes, getSingleRecipe, createRecipe, deleteRecipe };

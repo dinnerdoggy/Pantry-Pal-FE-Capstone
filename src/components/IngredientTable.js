@@ -14,6 +14,7 @@ function IngredientTable({ ingredientObj, onUpdate }) {
       <td>
         {ingredientObj.name}
         <Button onClick={deleteThisIngredient}>Delete</Button>
+        <Button>Edit</Button>
       </td>
       <td>{ingredientObj.qty}</td>
     </tr>
