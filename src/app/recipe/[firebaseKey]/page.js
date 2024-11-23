@@ -1,12 +1,28 @@
+'use client';
+
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getSingleRecipe } from '../../../api/recipeData';
 
 export default function RecipeDetailPage({ params }) {
-  return <div>Recipe Details Page TEST {params.firebaseKey}</div>;
+  const [recipe, setRecipe] = useState({});
+  const { firebaseKey } = params;
+
+  useEffect(() => {
+    getSingleRecipe(firebaseKey).then(setRecipe);
+  }, [firebaseKey]);
+
+  return (
+    <>
+      <h4>{recipe.name}</h4>
+      <div>{firebaseKey}</div>
+    </>
+  );
 }
 
 RecipeDetailPage.propTypes = {
   params: PropTypes.shape({
-    firebaseKey: PropTypes.number.isRequired,
+    firebaseKey: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
   }).isRequired,
 };

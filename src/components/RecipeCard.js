@@ -11,7 +11,7 @@ function RecipeCard({ recipeObj, onUpdate }) {
   // FOR DELETE, WE NEED TO REMOVE THE RECIPE AND HAVE THE VIEW RERENDER,
   // SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE RECIPES
   const deleteThisRecipe = () => {
-    if (window.confirm(`Delete ${recipeObj.title}?`)) {
+    if (window.confirm(`Delete ${recipeObj.name}?`)) {
       deleteRecipe(recipeObj.firebaseKey).then(() => onUpdate());
     }
   };
@@ -21,9 +21,9 @@ function RecipeCard({ recipeObj, onUpdate }) {
       {' '}
       {/* Card is wrapped in a Link compomnent to make the whole card clickable for view details */}
       <Card style={{ width: '18rem', margin: '10px' }}>
-        <Card.Img variant="top" src={recipeObj.image} alt={recipeObj.title} style={{ height: '400px' }} />
+        <Card.Img variant="top" src={recipeObj.image} alt={recipeObj.name} style={{ height: '400px' }} />
         <Card.Body>
-          <Card.Title>{recipeObj.title}</Card.Title>
+          <Card.Title>{recipeObj.name}</Card.Title>
           {/* DYNAMIC LINK TO EDIT THE RECIPE DETAILS  */}
           <Link href={`/recipe/edit/${recipeObj.firebaseKey}`} passHref>
             <Button variant="info">EDIT</Button>
@@ -40,7 +40,7 @@ function RecipeCard({ recipeObj, onUpdate }) {
 RecipeCard.propTypes = {
   recipeObj: PropTypes.shape({
     image: PropTypes.string,
-    title: PropTypes.string,
+    name: PropTypes.string,
     price: PropTypes.string,
     firebaseKey: PropTypes.string,
   }).isRequired,
