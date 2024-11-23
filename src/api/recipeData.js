@@ -45,6 +45,21 @@ const createRecipe = (payload) =>
       .catch(reject);
   });
 
+// UPDATE Recipe
+const updateRecipe = (payload) =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/recipe/${payload.firebaseKey}.json`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => response.json())
+      .then((data) => resolve(data))
+      .catch(reject);
+  });
+
 // DELETE Recipe
 const deleteRecipe = (firebaseKey) =>
   new Promise((resolve, reject) => {
@@ -59,4 +74,4 @@ const deleteRecipe = (firebaseKey) =>
       .catch(reject);
   });
 
-export { getRecipes, getSingleRecipe, createRecipe, deleteRecipe };
+export { getRecipes, getSingleRecipe, createRecipe, updateRecipe, deleteRecipe };

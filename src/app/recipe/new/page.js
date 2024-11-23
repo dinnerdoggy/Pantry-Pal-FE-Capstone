@@ -1,5 +1,6 @@
 import React from 'react';
+import RecipeForm from '../../../components/forms/RecipeForm';
 
-export default function page() {
-  return <div>CREATE RECIPE ROUTE TEST</div>;
+export default function CreateRecipePage() {
+  return <RecipeForm />;
 }
