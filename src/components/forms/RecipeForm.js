@@ -82,12 +82,10 @@ function RecipeForm({ obj = initialState }) {
   return (
     <Form onSubmit={handleSubmit} className="text-black">
       <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Add'} Recipe</h2>
-
       {/* RECIPE NAME INPUT  */}
       <FloatingLabel controlId="floatingInput1" label="Recipe Name" className="mb-3">
         <Form.Control type="text" placeholder="Recipe Name" name="name" value={formInput.name} onChange={handleChange} required />
       </FloatingLabel>
-
       {/* INGREDIENTS SELECT FIELDS */}
       {ingredientLines.map((line, index) => (
         <div key={obj.firebaseKey} className="d-flex mb-3">
@@ -97,22 +95,18 @@ function RecipeForm({ obj = initialState }) {
           </FloatingLabel>
         </div>
       ))}
-
       {/* ADD MORE INGREDIENT FIELDS BUTTON */}
       <Button type="button" onClick={addIngredientLine} variant="secondary" className="mb-3">
         Add Another Ingredient
       </Button>
-
       {/* RECIPE IMAGE INPUT  */}
       <FloatingLabel controlId="floatingInput2" label="Recipe Image" className="mb-3">
         <Form.Control type="url" placeholder="Enter an image url" name="image" value={formInput.image} onChange={handleChange} required />
       </FloatingLabel>
-
-      {/* RECIPE INSTRUCTIONS */}
+      {console.log('!!!!!!!!!!!!!!!!', ingredientLines)};{/* RECIPE INSTRUCTIONS */}
       <FloatingLabel controlId="exampleForm.ControlTextarea1" label="Instructions" className="mb-3">
         <Form.Control style={{ height: 'auto', minHeight: '150px' }} as="textarea" rows={20} placeholder="Instructions" name="instructions" value={formInput.instructions} onChange={handleChange} required />
       </FloatingLabel>
-
       {/* SUBMIT BUTTON  */}
       <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Recipe</Button>
     </Form>
