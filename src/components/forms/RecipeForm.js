@@ -73,7 +73,6 @@ function RecipeForm({ obj = initialState }) {
       createRecipe(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateRecipe(patchPayload).then(() => {
-          // Handle recipeIngredients here (you can send the ingredientLines data to the backend)
           router.push('/');
         });
       });
