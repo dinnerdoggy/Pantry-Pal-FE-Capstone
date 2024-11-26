@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 import { Button } from 'react-bootstrap';
-import { deleteIngredient } from '../api/ingredientData';
+import { deleteIngredient, updateIngredient } from '../api/ingredientData';
 
 function IngredientTable({ ingredientObj, onUpdate }) {
   const deleteThisIngredient = () => {
@@ -9,12 +10,19 @@ function IngredientTable({ ingredientObj, onUpdate }) {
     }
   };
 
+  const updateThis = () => {
+    updateIngredient(ingredientObj).then(() => onUpdate);
+  };
+
   return (
     <tr>
       <td>
         {ingredientObj.name}
         <Button onClick={deleteThisIngredient}>Delete</Button>
-        <Button>Edit</Button>
+        <Button onClick={updateThis}>Edit</Button>
+        <Link href={`/ingredient/edit/${ingredientObj.firebaseKey}`} passHref>
+          <Button variant="info">EDIT</Button>
+        </Link>
       </td>
       <td>{ingredientObj.qty}</td>
     </tr>
