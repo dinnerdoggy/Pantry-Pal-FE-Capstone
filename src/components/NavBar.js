@@ -32,6 +32,7 @@ export default function NavBar() {
           <Nav className="me-auto">
             <a {...createNavLinkProps('/recipe/new')}>Add a Recipe</a>
             <a {...createNavLinkProps('/ingredient')}>Ingredients</a>
+            <a {...createNavLinkProps('/ingredient/new')}>Add an Ingredient</a>
           </Nav>
 
           <Button variant="danger" onClick={signOut}>
