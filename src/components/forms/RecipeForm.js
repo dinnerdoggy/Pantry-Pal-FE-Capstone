@@ -31,10 +31,11 @@ function RecipeForm({ obj = initialState }) {
   useEffect(() => {
     if (obj.firebaseKey) setFormInput(obj);
     getIngredients(user.uid).then((data) => {
+      console.warn('LOOK HERE', data);
       // Fetches users owned ingredients.
       const ingredientOptions = data.map((ingredient) => ({
         // processes data to be compatible with select drop-down
-        value: ingredient.firebaseKey, // assign the id to value to each index
+        value: ingredient.firebaseKey, // assign the id to value for each index
         label: ingredient.name, // assign the name for display in the drop-down to each index
       }));
       setIngredients(ingredientOptions); // updates the state for use in the drop-down
