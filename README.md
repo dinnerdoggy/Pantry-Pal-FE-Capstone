@@ -1,61 +1,47 @@
-# NextJS with Firebase Auth App Router Template
+# Pantry Pal [![Netlify Status](https://api.netlify.com/api/v1/badges/4ab7e730-7ed3-4cfd-a988-66195e79a991/deploy-status)](https://app.netlify.com/sites/drt-sortinghat/deploys)
 
-[See Live Demo of this Template](https://drt-next-js-template-app-router.netlify.app/)
+Pantry Pal is a user-friendly application for creating, viewing, updating, and managing recipes. Users can log in with Google authentication and seamlessly manage their favorite recipes.
 
-## Topics
-- [Get Started](#get-started)
-- [Starting the Project](#starting-the-project)
-- [Deploying on Netlify](#deploying-on-netlify)
-___
-## Getting Started
-### Use Template
-#### 1. To get started, click the GREEN "Use this Template" button at the top of the repo
-<img width="915" alt="Screen Shot 2022-07-06 at 12 54 01 PM" src="https://user-images.githubusercontent.com/29741570/177612998-4aac9237-5a1e-4f13-8ae0-468587521564.png">
+[View App](#your-link)
 
-#### 2. Make sure YOUR github account is selected in the dropdown and name your project
-<img width="763" alt="Screen Shot 2022-07-06 at 12 54 48 PM" src="https://user-images.githubusercontent.com/29741570/177613126-dd38f678-7553-4f27-8a4a-75680f14d71e.png">
+## Get Started <!-- OPTIONAL, but doesn't hurt -->
+To get started with this app:
+1. Clone the repository to your local machine.
+2. Install dependencies using `npm install`.
+3. Start the development server using `npm start`.
+4. Access the app locally at `http://localhost:3000`.
 
-#### 3. Clone your new repo to your local machine
-#### 4. Go to the **NEXT** section
+## About the User <!-- This is a scaled down user persona -->
+- **Ideal User**: This app is perfect for food enthusiasts who love to organize, share, and explore new recipes.
 
-## Starting the Project
-1. Create a Firebase project and set up authentication. Use [these videos](https://vimeo.com/showcase/codetracker-firebase) as a refresher if needed.
-1. Create a `.env` file at the root of the project
-1. Copy/Paste the contents of the `.env.sample` file to your newly created `.env` file.
-1. Copy over all of your Firebase values into the `.env` file.
-1. Open the `package.json` file and change the `name` property to the name of your application, and `author` to  your name.
-1. From your command line, be in the root directory and run `npm install` OR `npm i` for short.
-1. Next, run `npm run prepare`. This command sets up husky to track eslint errors on commit that will make your deploy fail on Netlify.
-1. Run `npx eslint . --ext .js,.jsx`
-1. To start your application, run `npm run dev`. THIS IS THE COMMAND YOU WILL USE TO RUN YOUR DEVELOPMENT SERVER FROM NOW ON.
-1. Open [http://localhost:3000](http://localhost:3000) with your browser.
+## Features <!-- List your app features using bullets! Do NOT use a paragraph. No one will read that! -->
+- **Google Authentication**: Securely log in and access your recipes.
+- **View Recipes**: Browse a list of recipes on the main page.
+- **Recipe Details**: Click on a recipe to view its full details, including ingredients and instructions.
+- **Add Recipes**: Use the "Add a Recipe" button in the navbar to create a new recipe.
+- **Edit Recipes**: Update recipe information by clicking the "Edit" button on a recipe card.
+- **Delete Recipes**: Remove unwanted recipes using the "Delete" button on the recipe card.
 
-### If you see this, you are set to go!
-<img width="450" alt="Screen Shot 2022-07-06 at 1 07 27 PM" src="https://github.com/user-attachments/assets/deae25f0-01d5-44b4-be60-7297b0f6f0ef">
+## Video Walkthrough of Recipe App <!-- A loom link is sufficient -->
+https://www.loom.com/share/829b90d831ea441ba2db6bea724af210
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
+- [Check out the deployed site](#your-link)
+- [Wireframes](#your-link)
+- [Project Board](#your-link)
 
-**NOTES:** 
-- If you see the following error, you did not follow all the setup steps correctly and failed to add your Firebase creds. Go back and do that NOW.
-
-<img width="1043" alt="Screen Shot 2022-07-06 at 11 18 45 AM" src="https://user-images.githubusercontent.com/29741570/177612501-c2628f18-4bbd-4de9-aae6-27ffba1172d6.png">
-
-### Deploying on Netlify
-Netlify will automatically detect your project and prepopulate the settings, but should something go wrong and it does not, here are the commands:
-
-- Build Command: `npm run build`
-- Publish directory: `.next`
-
-#### Additional Steps to Take on Netlify
-- Add Environmental Variables
-    - Any Enviromental variables you are using in your `.env` file should be added to Netlify. 
-        - Go to Site settings > Build & deploy > Environment > Environment variables and the keys and values there if you did not add them when you were deploying your site
-
-- Update Firebase URL Settings
-    - In Firebase under Authentication select sign in methods, scroll to Authorized domains. Add your Netlify URL.
-        
-## Learn More about Next.js
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Code Snippet <!-- OPTIONAL, but doesn't hurt -->
+Here is a snippet to get recipes from the database:
+```javascript
+const getRecipes = (userId) =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/recipe.json?orderBy="userId"&equalTo="${userId}"`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => resolve(Object.values(data)))
+      .catch(reject);
+  });
