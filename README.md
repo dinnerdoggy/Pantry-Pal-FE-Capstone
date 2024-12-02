@@ -29,7 +29,7 @@ Pantry Pal is a user-friendly application for creating, viewing, updating, and m
 ![image](https://github.com/user-attachments/assets/881a8b29-1216-478a-b72d-20493dbc3aa4)
 
 ## Video Walkthrough of Recipe App <!-- A loom link is sufficient -->
-https://www.loom.com/share/829b90d831ea441ba2db6bea724af210
+https://www.loom.com/share/2514808886e74c13aa289ccb4e850920
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
 - [Check out the deployed site](https://caseys-pantry-pal.netlify.app/)
