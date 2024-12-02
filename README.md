@@ -1,15 +1,9 @@
 # Pantry Pal [![Netlify Status](https://api.netlify.com/api/v1/badges/5b475e36-dac6-4812-b22b-6501d97db6e0/deploy-status)](https://app.netlify.com/sites/caseys-pantry-pal/deploys)
 
+## Overview
 Pantry Pal is a user-friendly application for creating, viewing, updating, and managing recipes. Users can log in with Google authentication and seamlessly manage their favorite recipes.
 
 [View App Here](https://caseys-pantry-pal.netlify.app/)
-
-## Get Started <!-- OPTIONAL, but doesn't hurt -->
-To get started with this app:
-1. Clone the repository to your local machine.
-2. Install dependencies using `npm install`.
-3. Start the development server using `npm start`.
-4. Access the app locally at `http://localhost:3000`.
 
 ## About the User <!-- This is a scaled down user persona -->
 - **Ideal User**: This app is perfect for food enthusiasts that want an easy way to decide what to cook.
@@ -26,9 +20,10 @@ To get started with this app:
 https://www.loom.com/share/829b90d831ea441ba2db6bea724af210
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
-- [Check out the deployed site](#your-link)
-- [Wireframes](#your-link)
-- [Project Board](#your-link)
+- [Check out the deployed site]([#your-link](https://caseys-pantry-pal.netlify.app/))
+- [Wireframe](https://www.dropbox.com/scl/fi/o6st4gwnk7b3hkuld1rjj/pantrypalwireframe.drawio.png?rlkey=ppib5cfjbqorta9s0rot98isy&st=ikmwx6wn&dl=0)
+- [ERD](https://dbdiagram.io/d/Pantry_Pal-673516d9e9daa85aca5e5063)
+- [Project Board](https://github.com/users/dinnerdoggy/projects/1/views/1)
 
 ## Code Snippet <!-- OPTIONAL, but doesn't hurt -->
 Here is a snippet to get recipes from the database:
