@@ -20,7 +20,7 @@ Pantry Pal is a user-friendly application for creating, viewing, updating, and m
 https://www.loom.com/share/829b90d831ea441ba2db6bea724af210
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
-- [Check out the deployed site]([#your-link](https://caseys-pantry-pal.netlify.app/))
+- [Check out the deployed site](https://caseys-pantry-pal.netlify.app/)
 - [Wireframe](https://www.dropbox.com/scl/fi/o6st4gwnk7b3hkuld1rjj/pantrypalwireframe.drawio.png?rlkey=ppib5cfjbqorta9s0rot98isy&st=ikmwx6wn&dl=0)
 - [ERD](https://dbdiagram.io/d/Pantry_Pal-673516d9e9daa85aca5e5063)
 - [Project Board](https://github.com/users/dinnerdoggy/projects/1/views/1)
