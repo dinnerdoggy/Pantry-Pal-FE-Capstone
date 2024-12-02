@@ -16,6 +16,18 @@ Pantry Pal is a user-friendly application for creating, viewing, updating, and m
 - **Edit Recipes**: Update recipe information by clicking the "Edit" button on a recipe card.
 - **Delete Recipes**: Remove unwanted recipes using the "Delete" button on the recipe card.
 
+## Screenshots
+### Sign in
+![image](https://github.com/user-attachments/assets/15521a2f-13fd-4437-94c2-84f012b907c3)
+
+### Read Recipes
+![image](https://github.com/user-attachments/assets/dbb05d20-8c97-45b1-b675-bf6a22492415)
+![image](https://github.com/user-attachments/assets/b7e01932-cbdd-4045-920a-c0e805ad1072)
+
+### Create / Update Form
+![image](https://github.com/user-attachments/assets/1de30ef6-22fa-4876-86cc-1dc58740d793)
+![image](https://github.com/user-attachments/assets/881a8b29-1216-478a-b72d-20493dbc3aa4)
+
 ## Video Walkthrough of Recipe App <!-- A loom link is sufficient -->
 https://www.loom.com/share/829b90d831ea441ba2db6bea724af210
 
@@ -40,3 +52,6 @@ const getRecipes = (userId) =>
       .then((data) => resolve(Object.values(data)))
       .catch(reject);
   });
+```
+## Contributors
+[Casey Cunningham](github.com/dinnerdoggy)
