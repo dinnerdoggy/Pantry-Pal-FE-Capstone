@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "ingredientName": "Eggs"
+  },
+  {
+    "id": 2,
+    "ingredientName": "Bacon"
+  },
+  {
+    "id": 3,
+    "ingredientName":  "Butter"
+  }
+]

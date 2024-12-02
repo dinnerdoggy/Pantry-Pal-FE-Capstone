@@ -4,22 +4,15 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { getSingleRecipe } from '../../../api/recipeData';
-import { getRecipeIngredients } from '../../../api/recipeIngredientData';
 
 export default function RecipeDetailPage({ params }) {
   const [recipe, setRecipe] = useState({});
-  const [ingredients, setIngredients] = useState([]);
   const { firebaseKey } = params;
 
   useEffect(() => {
     // Fetch recipe details
     getSingleRecipe(firebaseKey).then(setRecipe);
-
-    // Fetch associated ingredients
-    getRecipeIngredients(firebaseKey).then((ingredientsData) => {
-      setIngredients(ingredientsData);
-    });
-  }, [firebaseKey]);
+  });
 
   return (
     <>
@@ -27,13 +20,7 @@ export default function RecipeDetailPage({ params }) {
       <Card.Img variant="top" src={recipe.image} alt={recipe.name} style={{ height: '400px', width: '400px' }} />
       <h3>Ingredients</h3>
       <hr />
-      <ul>
-        {ingredients.map((ingredient) => (
-          <li key={ingredient.firebaseKey}>
-            Ingredient ID: {ingredient.ingredientId}, Quantity: {ingredient.quantity}
-          </li>
-        ))}
-      </ul>
+      <ul>{recipe.ingredientName}</ul>
       <h3>Instructions</h3>
       <hr />
       <p>{recipe.instructions}</p>
