@@ -1,4 +1,4 @@
-# Pantry Pal [![Netlify Status](https://api.netlify.com/api/v1/badges/4ab7e730-7ed3-4cfd-a988-66195e79a991/deploy-status)](https://app.netlify.com/sites/drt-sortinghat/deploys)
+# Pantry Pal [![Netlify Status](https://api.netlify.com/api/v1/badges/5b475e36-dac6-4812-b22b-6501d97db6e0/deploy-status)](https://app.netlify.com/sites/caseys-pantry-pal/deploys)
 
 Pantry Pal is a user-friendly application for creating, viewing, updating, and managing recipes. Users can log in with Google authentication and seamlessly manage their favorite recipes.
 
