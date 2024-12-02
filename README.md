@@ -12,7 +12,7 @@ To get started with this app:
 4. Access the app locally at `http://localhost:3000`.
 
 ## About the User <!-- This is a scaled down user persona -->
-- **Ideal User**: This app is perfect for food enthusiasts who love to organize, share, and explore new recipes.
+- **Ideal User**: This app is perfect for food enthusiasts that want an easy way to decide what to cook.
 
 ## Features <!-- List your app features using bullets! Do NOT use a paragraph. No one will read that! -->
 - **Google Authentication**: Securely log in and access your recipes.
