@@ -9,6 +9,7 @@ import Select from 'react-select';
 import { useAuth } from '../../utils/context/authContext';
 import { getIngredients } from '../../api/ingredientData';
 import { createRecipe, updateRecipe } from '../../api/recipeData';
+import { createRecipeIngredients, updateRecipeIngredients } from '../../api/recipeIngredientData';
 
 const initialState = {
   createdAt: '',
@@ -30,10 +31,11 @@ function RecipeForm({ obj = initialState }) {
   useEffect(() => {
     if (obj.firebaseKey) setFormInput(obj);
     getIngredients(user.uid).then((data) => {
+      console.warn('LOOK HERE', data);
       // Fetches users owned ingredients.
       const ingredientOptions = data.map((ingredient) => ({
         // processes data to be compatible with select drop-down
-        value: ingredient.firebaseKey, // assign the id to value to each index
+        value: ingredient.firebaseKey, // assign the id to value for each index
         label: ingredient.name, // assign the name for display in the drop-down to each index
       }));
       setIngredients(ingredientOptions); // updates the state for use in the drop-down
@@ -69,13 +71,44 @@ function RecipeForm({ obj = initialState }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const payload = { ...formInput, userId: user.uid };
+
     if (obj.firebaseKey) {
-      updateRecipe(formInput).then(() => router.push(`/recipe/${obj.firebaseKey}`));
+      // Update Recipe
+      updateRecipe(payload).then(() => {
+        // Update RecipeIngredients for each ingredient line
+        ingredientLines.forEach((line) => {
+          const { ingredient, qty } = line;
+          if (ingredient) {
+            const joinData = {
+              recipeId: obj.firebaseKey,
+              ingredientId: ingredient,
+              quantity: qty,
+            };
+            // Save to recipeIngredients collection
+            updateRecipeIngredients(joinData);
+          }
+        });
+        router.push(`/recipe/${obj.firebaseKey}`);
+      });
     } else {
-      const payload = { ...formInput, userId: user.uid };
+      // Create Recipe
       createRecipe(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateRecipe(patchPayload).then(() => {
+          const recipeId = name; // Firebase Key of the newly created recipe
+          ingredientLines.forEach((line) => {
+            const { ingredient, qty } = line;
+            if (ingredient) {
+              const joinData = {
+                recipeId,
+                ingredientId: ingredient,
+                quantity: qty,
+              };
+              createRecipeIngredients(joinData);
+            }
+          });
           router.push('/');
         });
       });
