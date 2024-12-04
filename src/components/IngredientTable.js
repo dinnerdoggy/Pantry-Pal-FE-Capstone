@@ -16,15 +16,18 @@ function IngredientTable({ ingredientObj, onUpdate }) {
 
   return (
     <tr>
-      <td>
-        {ingredientObj.name}
-        <Button onClick={deleteThisIngredient}>Delete</Button>
-        <Button onClick={updateThis}>Edit</Button>
-        <Link href={`/ingredient/edit/${ingredientObj.firebaseKey}`} passHref>
-          <Button variant="info">EDIT</Button>
-        </Link>
-      </td>
+      <td>{ingredientObj.name}</td>
       <td>{ingredientObj.qty}</td>
+      <span className="btn-cell">
+        <Link href={`/ingredient/edit/${ingredientObj.firebaseKey}`} passHref>
+          <Button onClick={updateThis} className="btn-cell" variant="info">
+            EDIT
+          </Button>
+        </Link>
+        <Button className="deleteBtn" onClick={deleteThisIngredient}>
+          Delete
+        </Button>
+      </span>
     </tr>
   );
 }

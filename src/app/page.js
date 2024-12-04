@@ -26,7 +26,7 @@ function Home() {
 
   return (
     <div className="text-center my-4">
-      <div className="d-flex flex-wrap">
+      <div className=" mainPage d-flex flex-wrap">
         {/* map over recipes here using RecipeCard component */}
         {recipes.map((recipe) => (
           <RecipeCard key={recipe.firebaseKey} recipeObj={recipe} onUpdate={getAllTheRecipes} />

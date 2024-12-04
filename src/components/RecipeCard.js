@@ -27,7 +27,7 @@ function RecipeCard({ recipeObj, onUpdate }) {
             <Button variant="info">EDIT</Button>
           </Link>
           <Link href="/">
-            <Button variant="danger" onClick={deleteThisRecipe} className="m-2">
+            <Button variant="danger" onClick={deleteThisRecipe} className="deleteBtn">
               DELETE
             </Button>
           </Link>

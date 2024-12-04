@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { signOut } from '../utils/auth';
 
@@ -22,10 +23,10 @@ export default function NavBar() {
   });
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container>
+    <Navbar collapseOnSelect expand="lg" variant={{ color: '#F0C400' }}>
+      <Container className="navBar">
         <a {...createNavLinkProps('/')} className="navbar-brand">
-          Pantry Pal
+          <Image src="/images/favicon.ico" alt="Pantry Pal" width={100} height={100} />
         </a>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

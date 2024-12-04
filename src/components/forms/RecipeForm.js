@@ -116,8 +116,10 @@ function RecipeForm({ obj = initialState }) {
   };
 
   return (
-    <Form onSubmit={handleSubmit} className="text-black">
-      <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Add'} Recipe</h2>
+    <Form onSubmit={handleSubmit} className="display-flex-column centerAll text-black">
+      <h2 style={{ color: '#4F7E17' }} className="mt-5">
+        {obj.firebaseKey ? 'Update' : 'Add'} Recipe
+      </h2>
       {/* RECIPE NAME INPUT  */}
       <Form.Label controlId="floatingInput1" label="Recipe Name" className="mb-3">
         <Form.Control type="text" placeholder="Recipe Name" name="name" value={formInput.name} onChange={handleChange} required />
@@ -132,7 +134,7 @@ function RecipeForm({ obj = initialState }) {
         </div>
       ))}
       {/* ADD MORE INGREDIENT FIELDS BUTTON */}
-      <Button type="button" onClick={addIngredientLine} variant="secondary" className="mb-3">
+      <Button type="button" onClick={addIngredientLine} variant="secondary" className="copy-btn">
         Add Another Ingredient
       </Button>
       <br />
@@ -147,7 +149,9 @@ function RecipeForm({ obj = initialState }) {
       </Form.Label>
       <br />
       {/* SUBMIT BUTTON  */}
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Recipe</Button>
+      <Button className="copy-btn" type="submit">
+        {obj.firebaseKey ? 'Update' : 'Create'} Recipe
+      </Button>
     </Form>
   );
 }
