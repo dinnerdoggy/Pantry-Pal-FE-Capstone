@@ -1,4 +1,91 @@
 body {
-  background: black;
+  background-image: url('../../public/images/Pantry_Pal_BG.png');
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
   color: white;
+}
+
+html {
+  height: 100vh;
+}
+
+.navbar {
+  background-color: #CD0302;
+}
+
+.nav-link {
+  color: #F5D19D;
+}
+
+.header .mt-5 {
+  color: #F0C400;
+}
+
+.btn-info {
+  background-color: #F0C400;
+  color: #4F7E17;
+  border: none;
+}
+
+.btn-info:hover {
+  background-color: #F5D19D;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  border: none;
+}
+
+.btn-cell {
+  display: flex;
+  flex-shrink: 1;
+}
+
+.ingredientsPage {
+  height: 100vh;
+}
+
+.copy-btn {
+  background-color: #F88702;
+  color: beige;
+  border: none;
+  width: fit-content;
+  align-self: center;
+}
+
+.copy-btn:hover {
+  background-color: #F0C400;
+  color: #CD0302;
+}
+
+.greeting {
+  color: #4F7E17;
+}
+
+.deleteBtn {
+  background-color: #CD0302;
+  color: beige;
+}
+
+.deleteBtn:hover {
+  background-color: #F88702;
+  color: #CD0302;
+}
+
+.mainPage {
+  justify-content: center;
+}
+
+.centerAll {
+  justify-content: center;
+  align-items: center;
+}
+
+.display-flex-column {
+  display: flex;
+  flex-direction: column;
 }

@@ -44,20 +44,24 @@ export default function IngredientForm({ obj = initialState }) {
   };
 
   return (
-    <Form onSubmit={handleSubmit} className="text-black">
-      <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Add'} Ingredient</h2>
+    <Form onSubmit={handleSubmit} className="display-flex-column centerAll text-black">
+      <h2 style={{ color: '#4F7E17' }} className="mt-5">
+        {obj.firebaseKey ? 'Update' : 'Add'} Ingredient
+      </h2>
       <div className="d-flex mb-3">
-        <Form.Group className="flex-grow-1" label="Ingredient Name" controlId="exampleForm.ControlInput1">
+        <Form.Group className="" label="Ingredient Name" controlId="exampleForm.ControlInput1">
           <Form.Label>Ingredient</Form.Label>
           <Form.Control type="text" placeholder="Ingredient" name="name" value={formInput.name} onChange={handleChange} required />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+        <Form.Group className="" controlId="exampleForm.ControlTextarea1">
           <Form.Label>Quantity</Form.Label>
           <Form.Control type="number" placeholder="Qty." />
         </Form.Group>
       </div>
       {/* SUBMIT BUTTON  */}
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Add'} Ingredient</Button>
+      <Button className="copy-btn" type="submit">
+        {obj.firebaseKey ? 'Update' : 'Add'} Ingredient
+      </Button>
     </Form>
   );
 }
