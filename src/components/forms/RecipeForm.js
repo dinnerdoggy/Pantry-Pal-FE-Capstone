@@ -119,7 +119,7 @@ function RecipeForm({ obj = initialState }) {
     <Form onSubmit={handleSubmit} className="display-flex-column centerAll text-black">
       <h2 className="header mt-5">{obj.firebaseKey ? 'Update' : 'Add'} Recipe</h2>
       {/* RECIPE NAME INPUT  */}
-      <Form.Label controlId="floatingInput1" label="Recipe Name" className="mb-3">
+      <Form.Label controlId="floatingInput1" label="Recipe Name" className="border mb-3">
         <Form.Control type="text" placeholder="Recipe Name" name="name" value={formInput.name} onChange={handleChange} required />
       </Form.Label>
       {/* INGREDIENTS SELECT FIELDS */}
@@ -137,12 +137,12 @@ function RecipeForm({ obj = initialState }) {
       </Button>
       <br />
       {/* RECIPE IMAGE INPUT  */}
-      <Form.Label controlId="floatingInput2" label="Recipe Image" className="mb-3">
+      <Form.Label controlId="floatingInput2" label="Recipe Image" className="border mb-3">
         <Form.Control type="url" placeholder="Enter an image url" name="image" value={formInput.image} onChange={handleChange} required />
       </Form.Label>
       <br />
       {/* RECIPE INSTRUCTIONS */}
-      <Form.Label controlId="exampleForm.ControlTextarea1" label="Instructions" className="mb-3">
+      <Form.Label controlId="exampleForm.ControlTextarea1" label="Instructions" className="border mb-3">
         <Form.Control style={{ height: 'auto', minHeight: '150px' }} as="textarea" rows={20} placeholder="Instructions" name="instructions" value={formInput.instructions} onChange={handleChange} required />
       </Form.Label>
       <br />

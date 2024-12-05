@@ -19,7 +19,7 @@ function RecipeCard({ recipeObj, onUpdate }) {
       {' '}
       {/* Card is wrapped in a Link compomnent to make the whole card clickable for view details */}
       <Card style={{ width: '18rem', margin: '10px', border: '5px solid black' }}>
-        <Card.Img className="cardImage" variant="top" src={recipeObj.image} alt={recipeObj.name} style={{ height: '300px' }} />
+        <Card.Img className="cardImage" variant="middle" src={recipeObj.image} alt={recipeObj.name} style={{ height: '300px' }} />
         <Card.Body>
           <Card.Title>{recipeObj.name}</Card.Title>
           {/* DYNAMIC LINK TO EDIT THE RECIPE DETAILS  */}
