@@ -49,11 +49,11 @@ export default function IngredientForm({ obj = initialState }) {
         {obj.firebaseKey ? 'Update' : 'Add'} Ingredient
       </h2>
       <div className="d-flex mb-3">
-        <Form.Group className="" label="Ingredient Name" controlId="exampleForm.ControlInput1">
+        <Form.Group label="Ingredient Name" controlId="exampleForm.ControlInput1">
           <Form.Label>Ingredient</Form.Label>
           <Form.Control type="text" placeholder="Ingredient" name="name" value={formInput.name} onChange={handleChange} required />
         </Form.Group>
-        <Form.Group className="" controlId="exampleForm.ControlTextarea1">
+        <Form.Group controlId="exampleForm.ControlTextarea1">
           <Form.Label>Quantity</Form.Label>
           <Form.Control type="number" placeholder="Qty." />
         </Form.Group>
