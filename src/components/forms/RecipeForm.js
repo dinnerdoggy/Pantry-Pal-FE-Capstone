@@ -117,9 +117,7 @@ function RecipeForm({ obj = initialState }) {
 
   return (
     <Form onSubmit={handleSubmit} className="display-flex-column centerAll text-black">
-      <h2 style={{ color: '#4F7E17' }} className="mt-5">
-        {obj.firebaseKey ? 'Update' : 'Add'} Recipe
-      </h2>
+      <h2 className="header mt-5">{obj.firebaseKey ? 'Update' : 'Add'} Recipe</h2>
       {/* RECIPE NAME INPUT  */}
       <Form.Label controlId="floatingInput1" label="Recipe Name" className="mb-3">
         <Form.Control type="text" placeholder="Recipe Name" name="name" value={formInput.name} onChange={handleChange} required />

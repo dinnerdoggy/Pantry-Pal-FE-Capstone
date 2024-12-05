@@ -18,8 +18,8 @@ function RecipeCard({ recipeObj, onUpdate }) {
     <Link href={`/recipe/${recipeObj.firebaseKey}`} passHref>
       {' '}
       {/* Card is wrapped in a Link compomnent to make the whole card clickable for view details */}
-      <Card style={{ width: '18rem', margin: '10px' }}>
-        <Card.Img variant="top" src={recipeObj.image} alt={recipeObj.name} style={{ height: '400px' }} />
+      <Card style={{ width: '18rem', margin: '10px', border: '5px solid black' }}>
+        <Card.Img className="cardImage" variant="top" src={recipeObj.image} alt={recipeObj.name} style={{ height: '300px' }} />
         <Card.Body>
           <Card.Title>{recipeObj.name}</Card.Title>
           {/* DYNAMIC LINK TO EDIT THE RECIPE DETAILS  */}

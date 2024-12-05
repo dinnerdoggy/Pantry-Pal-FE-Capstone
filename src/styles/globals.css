@@ -18,8 +18,32 @@ html {
   color: #F5D19D;
 }
 
-.header .mt-5 {
+.header {
+  color: #F88702;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.border {
+  background-color: black;
+  border-radius: 1rem;
+  padding: 5px;
+}
+
+.cardImage {
+  border-bottom: 5px solid black;
+}
+
+.whiteTextOutlined {
   color: #F0C400;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  font-weight: bolder;
+}
+
+.background {
+  background-color: #CD0302;
+  padding: 2rem;
+  border: solid 5px black;
+  border-radius: 1rem;
 }
 
 .btn-info {

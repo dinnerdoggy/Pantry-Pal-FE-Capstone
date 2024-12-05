@@ -27,20 +27,20 @@ export default function RecipeDetailPage({ params }) {
 
   return (
     <div className="display-flex-column centerAll" style={{ color: '#4F7E17' }}>
-      <h1 style={{ color: '#F88702' }}>{recipe.name}</h1>
-      <Card.Img variant="top" src={recipe.image} alt={recipe.name} style={{ height: '400px', width: '400px' }} />
-      <h3 style={{ color: '#F88702' }}>Ingredients</h3>
+      <h1 className="header">{recipe.name}</h1>
+      <Card.Img className="border" variant="top" src={recipe.image} alt={recipe.name} style={{ height: '400px', width: '400px' }} />
+      <h3 className="header">Ingredients</h3>
       <hr />
-      <ul>
+      <ul className="whiteTextOutlined">
         {ingredients.map((ingredient) => (
           <li key={ingredient.firebaseKey}>
             Ingredient ID: {ingredient.ingredientId}, Quantity: {ingredient.quantity}
           </li>
         ))}
       </ul>
-      <h3 style={{ color: '#F88702' }}>Instructions</h3>
+      <h3 className="header">Instructions</h3>
       <hr />
-      <p>{recipe.instructions}</p>
+      <p className="whiteTextOutlined background">{recipe.instructions}</p>
     </div>
   );
 }

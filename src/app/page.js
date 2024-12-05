@@ -29,7 +29,7 @@ function Home() {
       <div className=" mainPage d-flex flex-wrap">
         {/* map over recipes here using RecipeCard component */}
         {recipes.map((recipe) => (
-          <RecipeCard key={recipe.firebaseKey} recipeObj={recipe} onUpdate={getAllTheRecipes} />
+          <RecipeCard className="border" key={recipe.firebaseKey} recipeObj={recipe} onUpdate={getAllTheRecipes} />
         ))}
       </div>
     </div>
