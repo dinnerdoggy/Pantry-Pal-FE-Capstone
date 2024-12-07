@@ -22,19 +22,6 @@ const getRecipeIngredients = (recipeId) =>
       .catch(reject);
   });
 
-const getIngredientById = (ingredientId) =>
-  new Promise((resolve, reject) => {
-    fetch(`${endpoint}/ingredients/${ingredientId}.json`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then(resolve)
-      .catch(reject);
-  });
-
 // CREATE Recipe Ingredients
 const createRecipeIngredients = (payload) =>
   new Promise((resolve, reject) => {
@@ -65,4 +52,4 @@ const updateRecipeIngredients = (payload) =>
       .catch(reject);
   });
 
-export { getRecipeIngredients, getIngredientById, createRecipeIngredients, updateRecipeIngredients };
+export { getRecipeIngredients, createRecipeIngredients, updateRecipeIngredients };
