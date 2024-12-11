@@ -20,10 +20,11 @@ export default function IngredientForm({ obj = initialState }) {
   const { user } = useAuth();
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, quantity, qty } = e.target;
     setFormInput((prevState) => ({
       ...prevState,
       [name]: value,
+      [quantity]: qty,
     }));
   };
 
@@ -45,9 +46,7 @@ export default function IngredientForm({ obj = initialState }) {
 
   return (
     <Form onSubmit={handleSubmit} className="display-flex-column centerAll text-black">
-      <h2 style={{ color: '#4F7E17' }} className="mt-5">
-        {obj.firebaseKey ? 'Update' : 'Add'} Ingredient
-      </h2>
+      <h2 className="header mt-5">{obj.firebaseKey ? 'Update' : 'Add'} Ingredient</h2>
       <div className="d-flex mb-3">
         <Form.Group label="Ingredient Name" controlId="exampleForm.ControlInput1">
           <Form.Label>Ingredient</Form.Label>
@@ -55,7 +54,7 @@ export default function IngredientForm({ obj = initialState }) {
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlTextarea1">
           <Form.Label>Quantity</Form.Label>
-          <Form.Control type="number" placeholder="Qty." />
+          <Form.Control type="number" placeholder="Qty." name="qty" value={formInput.quantity} onChange={handleChange} />
         </Form.Group>
       </div>
       {/* SUBMIT BUTTON  */}

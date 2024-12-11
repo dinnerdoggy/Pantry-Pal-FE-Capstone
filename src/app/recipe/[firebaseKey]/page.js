@@ -6,36 +6,23 @@ import { Card } from 'react-bootstrap';
 import { getSingleRecipe } from '../../../api/recipeData';
 import { getRecipeIngredients } from '../../../api/recipeIngredientData';
 import { getIngredients } from '../../../api/ingredientData';
-import { useAuth } from '../../../utils/context/authContext';
 
 export default function RecipeDetailPage({ params }) {
-  const [recipe, setRecipe] = useState({});
-  const [ingredients, setIngredients] = useState([]); // State for ingredients with names
-  const { firebaseKey } = params; // Recipe ID
-  const { user } = useAuth();
+  const [recipe, setRecipe] = useState({}); // State for storing recipe details
+  const [ingredients, setIngredients] = useState([]); // State for storing list of ingredients with details
+  // const [ingredientNames, setIngredientNames] =useState()
+  const { firebaseKey } = params; // Extracting the unique recipe ID from route parameters
 
   useEffect(() => {
     // Fetch recipe details
     getSingleRecipe(firebaseKey).then(setRecipe);
 
-    // Fetch join table data (recipeIngredients) and ingredient data
+    // Fetch associated ingredients
     getRecipeIngredients(firebaseKey).then((ingredientsData) => {
-      getIngredients(user.uid).then((allIngredients) => {
-        // Build a lookup table for ingredients by their firebaseKey
-        const ingredientLookup = allIngredients.reduce((acc, ingredient) => {
-          acc[ingredient.firebaseKey] = ingredient.name; // Map firebaseKey to name
-          return acc;
-        }, {});
-
-        // Map over recipeIngredients to include the name from the lookup table
-        const ingredientsWithNames = ingredientsData.map((ingredient) => ({
-          ...ingredient,
-          name: ingredientLookup[ingredient.ingredientId] || 'Unknown Ingredient', // Default to avoid undefined
-        }));
-
-        setIngredients(ingredientsWithNames);
-      });
+      setIngredients(ingredientsData);
     });
+
+    getIngredients(); // I have to do something with this
   }, [firebaseKey]);
 
   return (
@@ -47,7 +34,7 @@ export default function RecipeDetailPage({ params }) {
       <ul className="whiteTextOutlined">
         {ingredients.map((ingredient) => (
           <li key={ingredient.firebaseKey}>
-            {ingredient.name} - Quantity: {ingredient.quantity}
+            Ingredient ID: {ingredient.ingredientId}, Quantity: {ingredient.quantity}
           </li>
         ))}
       </ul>
