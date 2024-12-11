@@ -36,7 +36,7 @@ export default function RecipeDetailPage({ params }) {
         setIngredients(ingredientsWithNames);
       });
     });
-  }, []);
+  }, [firebaseKey]);
 
   return (
     <div className="display-flex-column centerAll" style={{ color: '#4F7E17' }}>

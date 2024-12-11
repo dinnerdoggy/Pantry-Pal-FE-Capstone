@@ -23,7 +23,7 @@ export default function NavBar() {
   });
 
   return (
-    <Navbar collapseOnSelect expand="lg" variant={{ color: '#F0C400' }}>
+    <Navbar collapseOnSelect expand="lg" className="navBorder" variant={{ color: '#F0C400' }}>
       <Container className="navBar">
         <a {...createNavLinkProps('/')} className="navbar-brand">
           <Image src="/images/favicon.ico" alt="Pantry Pal" width={100} height={100} />
@@ -36,7 +36,7 @@ export default function NavBar() {
             <a {...createNavLinkProps('/ingredient/new')}>Add an Ingredient</a>
           </Nav>
 
-          <Button variant="danger" onClick={signOut}>
+          <Button className="bgOrange" variant="danger" onClick={signOut}>
             Sign Out
           </Button>
         </Navbar.Collapse>
