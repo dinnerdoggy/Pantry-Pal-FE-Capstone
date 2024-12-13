@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
@@ -24,9 +24,13 @@ export default function IngredientForm({ obj = initialState }) {
     setFormInput((prevState) => ({
       ...prevState,
       [name]: value,
-      [quantity]: qty,
+      [qty]: quantity,
     }));
   };
+
+  useEffect(() => {
+    if (obj.firebaseKey) setFormInput(obj);
+  }, [obj]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,7 +58,7 @@ export default function IngredientForm({ obj = initialState }) {
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlTextarea1">
           <Form.Label>Quantity</Form.Label>
-          <Form.Control type="number" placeholder="Qty." name="qty" value={formInput.quantity} onChange={handleChange} />
+          <Form.Control type="number" placeholder="Qty." name="qty" value={formInput.qty} onChange={handleChange} required />
         </Form.Group>
       </div>
       {/* SUBMIT BUTTON  */}
