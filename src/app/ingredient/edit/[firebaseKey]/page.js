@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { getSingleIngredient } from '../../../../api/ingredientData';
-import IngredientForm from '../../../../components/forms/IngredientForm';
+import { getSingleIngredient } from '@/api/ingredientData';
+import IngredientForm from '@/components/forms/IngredientForm';
 
 export default function UpdateIngredientPage({ params }) {
   const [editItem, setEditItem] = useState({});

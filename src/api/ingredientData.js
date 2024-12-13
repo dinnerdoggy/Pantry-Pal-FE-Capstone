@@ -19,7 +19,7 @@ const getIngredients = (userId) =>
 // GET Single Ingredient
 const getSingleIngredient = (firebaseKey) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/Ingredient/${firebaseKey}.json`, {
+    fetch(`${endpoint}/ingredient/${firebaseKey}.json`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
