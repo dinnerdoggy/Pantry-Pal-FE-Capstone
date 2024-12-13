@@ -53,7 +53,7 @@ export default function RecipeDetailPage({ params }) {
       </ul>
       <h3 className="header">Instructions</h3>
       <hr />
-      <p className="whiteTextOutlined background">{recipe.instructions}</p>
+      <p className="whiteTextOutlined background keepFormat">{recipe.instructions}</p>
     </div>
   );
 }

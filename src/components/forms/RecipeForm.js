@@ -128,9 +128,13 @@ function RecipeForm({ obj = initialState }) {
   return (
     <Form onSubmit={handleSubmit} className="display-flex-column centerAll text-black">
       <h2 className="header mt-5">{obj.firebaseKey ? 'Update' : 'Add'} Recipe</h2>
+
+      {/* Recipe Name */}
       <Form.Label controlId="floatingInput1" label="Recipe Name" className="border mb-3">
         <Form.Control type="text" placeholder="Recipe Name" name="name" value={formInput.name} onChange={handleChange} required />
       </Form.Label>
+
+      {/* Ingredients */}
       {ingredientLines.map((line, index) => (
         <div key={line.firebaseKey} className="d-flex mb-3">
           <Select className="flex-grow-1" options={ingredients} placeholder="Select an ingredient" onChange={(selectedOption) => handleSelectChange(index, selectedOption)} value={ingredients.find((ingredient) => ingredient.value === line.ingredient) || null} />
@@ -143,10 +147,14 @@ function RecipeForm({ obj = initialState }) {
         Add Another Ingredient
       </Button>
       <br />
+
+      {/* Image Url */}
       <Form.Label controlId="floatingInput2" label="Recipe Image" className="border mb-3">
         <Form.Control type="url" placeholder="Enter an image url" name="image" value={formInput.image} onChange={handleChange} required />
       </Form.Label>
       <br />
+
+      {/* Instructions */}
       <Form.Label controlId="exampleForm.ControlTextarea1" label="Instructions" className="border mb-3">
         <Form.Control style={{ height: 'auto', minHeight: '150px' }} as="textarea" rows={20} placeholder="Instructions" name="instructions" value={formInput.instructions} onChange={handleChange} required />
       </Form.Label>
