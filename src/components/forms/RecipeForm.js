@@ -51,7 +51,7 @@ function RecipeForm({ obj = initialState }) {
     } else {
       setIngredientLines([{ ingredient: '', qty: '' }]);
     }
-  }, [obj]);
+  }, [obj, user.uid]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -97,7 +97,7 @@ function RecipeForm({ obj = initialState }) {
             });
           }
         });
-        router.push('/');
+        router.push(`/recipe/${obj.firebaseKey}`);
       });
     } else {
       // Create recipe

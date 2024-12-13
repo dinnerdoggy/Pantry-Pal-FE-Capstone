@@ -65,4 +65,24 @@ const updateRecipeIngredients = (payload) =>
       .catch(reject);
   });
 
-export { getRecipeIngredients, getIngredientById, createRecipeIngredients, updateRecipeIngredients };
+// DELETE Recipe Ingredients
+const deleteRecipeIngredients = (recipeId) =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/recipeIngredients.json?orderBy="recipeId"&equalTo="${recipeId}"`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data) {
+          resolve(Object.values(data));
+        } else {
+          resolve([]);
+        }
+      })
+      .catch(reject);
+  });
+
+export { getRecipeIngredients, getIngredientById, createRecipeIngredients, updateRecipeIngredients, deleteRecipeIngredients };
