@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
-import { deleteRecipe } from '../api/recipeData';
+import { deleteRecipeIngredients } from '../api/recipeIngredientData';
 
 function RecipeCard({ recipeObj, onUpdate }) {
   const deleteThisRecipe = () => {
     if (window.confirm(`Delete ${recipeObj.name}?`)) {
-      deleteRecipe(recipeObj.firebaseKey).then(() => onUpdate());
+      deleteRecipeIngredients(recipeObj.firebaseKey).then(() => onUpdate());
     }
   };
 

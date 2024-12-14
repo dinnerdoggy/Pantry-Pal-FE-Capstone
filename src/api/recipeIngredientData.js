@@ -1,3 +1,4 @@
+import { deleteRecipe } from './recipeData';
 import { clientCredentials } from '../utils/client';
 
 const endpoint = clientCredentials.databaseURL;
@@ -65,4 +66,27 @@ const updateRecipeIngredients = (payload) =>
       .catch(reject);
   });
 
-export { getRecipeIngredients, getIngredientById, createRecipeIngredients, updateRecipeIngredients };
+// DELETE a sing recipeIngredient
+const deleteSingleRecipeIngredient = (firebaseKey) =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/recipeIngredients/${firebaseKey}.json`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => resolve(data))
+      .catch(reject);
+  });
+
+// DELETE recipeIngredients
+const deleteRecipeIngredients = (recipeId) =>
+  getRecipeIngredients(recipeId)
+    .then((ingredientsArray) => {
+      const deleteIngredientPromises = ingredientsArray.map((ingredient) => deleteSingleRecipeIngredient(ingredient.firebaseKey));
+      return Promise.all(deleteIngredientPromises);
+    })
+    .then(() => deleteRecipe(recipeId));
+
+export { getRecipeIngredients, getIngredientById, createRecipeIngredients, updateRecipeIngredients, deleteRecipeIngredients };

@@ -2,7 +2,8 @@
 
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
-import { Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
+import Link from 'next/link';
 import { getSingleRecipe } from '../../../api/recipeData';
 import { getRecipeIngredients } from '../../../api/recipeIngredientData';
 import { getIngredients } from '../../../api/ingredientData';
@@ -36,7 +37,7 @@ export default function RecipeDetailPage({ params }) {
         setIngredients(ingredientsWithNames);
       });
     });
-  }, [firebaseKey]);
+  }, [firebaseKey, user.uid]);
 
   return (
     <div className="display-flex-column centerAll" style={{ color: '#4F7E17' }}>
@@ -54,6 +55,9 @@ export default function RecipeDetailPage({ params }) {
       <h3 className="header">Instructions</h3>
       <hr />
       <p className="whiteTextOutlined background keepFormat">{recipe.instructions}</p>
+      <Link href={`/recipe/edit/${recipe.firebaseKey}`} passHref>
+        <Button variant="info">EDIT</Button>
+      </Link>
     </div>
   );
 }
