@@ -10,8 +10,7 @@ import { createIngredient, updateIngredient } from '../../api/ingredientData';
 const initialState = {
   userId: '',
   name: '',
-  qty: '',
-  unit: '',
+  qty: 0,
 };
 
 export default function IngredientForm({ obj = initialState }) {
@@ -20,11 +19,10 @@ export default function IngredientForm({ obj = initialState }) {
   const { user } = useAuth();
 
   const handleChange = (e) => {
-    const { name, value, quantity, qty } = e.target;
+    const { name, value } = e.target;
     setFormInput((prevState) => ({
       ...prevState,
-      [name]: value,
-      [qty]: quantity,
+      [name]: name === 'qty' ? Number(value) : value,
     }));
   };
 
