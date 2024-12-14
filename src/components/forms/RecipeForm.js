@@ -89,12 +89,23 @@ function RecipeForm({ obj = initialState }) {
         ingredientLines.forEach((line) => {
           const { firebaseKey, recipeId, ingredient, qty } = line;
           if (ingredient) {
-            updateRecipeIngredients({
-              firebaseKey,
-              recipeId,
-              ingredientId: ingredient,
-              quantity: qty,
-            });
+            if (firebaseKey) {
+              updateRecipeIngredients({
+                firebaseKey,
+                recipeId,
+                ingredientId: ingredient,
+                quantity: qty,
+              });
+            } else {
+              createRecipeIngredients({
+                recipeId: obj.firebaseKey,
+                ingredientId: ingredient,
+                quantity: qty,
+              }).then((data) => {
+                const patchRiPaylod = { firebaseKey: data.name };
+                updateRecipeIngredients(patchRiPaylod);
+              });
+            }
           }
         });
         router.push(`/recipe/${obj.firebaseKey}`);
@@ -105,7 +116,6 @@ function RecipeForm({ obj = initialState }) {
         const patchPayload = { firebaseKey: name };
         updateRecipe(patchPayload).then(() => {
           const recipeId = name;
-          console.warn('ingredientLines: ', ingredientLines);
           ingredientLines.forEach((line) => {
             const { ingredient, qty } = line;
             if (ingredient) {
