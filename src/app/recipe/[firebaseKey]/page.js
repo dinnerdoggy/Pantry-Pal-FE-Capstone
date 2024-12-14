@@ -6,7 +6,7 @@ import { Button, Card } from 'react-bootstrap';
 import Link from 'next/link';
 import { getSingleRecipe } from '../../../api/recipeData';
 import { getRecipeIngredients } from '../../../api/recipeIngredientData';
-import { getIngredients } from '../../../api/ingredientData';
+import { getIngredients, updateIngredient } from '../../../api/ingredientData';
 import { useAuth } from '../../../utils/context/authContext';
 
 export default function RecipeDetailPage({ params }) {
@@ -39,6 +39,53 @@ export default function RecipeDetailPage({ params }) {
     });
   }, [firebaseKey, user.uid]);
 
+  const handleUseRecipe = () => {
+    // Step 1: Fetch the ingredients associated with the recipe
+    getRecipeIngredients(firebaseKey)
+      .then((ingredientsData) => {
+        // Step 2: For each ingredient in the recipeIngredients, update the ingredient's quantity
+        const updatePromises = ingredientsData.map((ingredient) => {
+          const {ingredientId} = ingredient; // The ID of the ingredient in the ingredients collection
+          const quantityUsed = ingredient.quantity; // The quantity used from the recipe
+
+          if (Number.isNaN(quantityUsed)) {
+            return Promise.resolve(); // Skip this ingredient if the quantity is invalid
+          }
+
+          // Step 3: Fetch the current ingredient details
+          return getIngredients(user.uid).then((allIngredients) => {
+            const ingredientToUpdate = allIngredients.find((ing) => ing.firebaseKey === ingredientId);
+
+            if (ingredientToUpdate) {
+              const currentQty = parseInt(ingredientToUpdate.qty, 10); // Ensure qty is parsed as an integer
+
+              if (Number.isNaN(currentQty)) {
+                return Promise.resolve(); // Skip if the ingredient's quantity is invalid
+              }
+
+              const newQty = currentQty - quantityUsed; // Deduct the quantity
+
+              // Use the updateIngredient function to update the ingredient
+              return updateIngredient({
+                ...ingredientToUpdate,
+                qty: newQty, // Update the qty field
+              });
+            } 
+              // Handle case where the ingredient is not found (optional)
+              console.error('Ingredient not found:', ingredientId);
+              return Promise.resolve(); // Skip this ingredient
+            
+          });
+        });
+
+        // Wait for all promises to resolve
+        return Promise.all(updatePromises);
+      })
+      .catch((error) => {
+        console.error('Error processing ingredients:', error);
+      });
+  };
+
   return (
     <div className="display-flex-column centerAll" style={{ color: '#4F7E17' }}>
       <h1 className="header">{recipe.name}</h1>
@@ -55,9 +102,14 @@ export default function RecipeDetailPage({ params }) {
       <h3 className="header">Instructions</h3>
       <hr />
       <p className="whiteTextOutlined background keepFormat">{recipe.instructions}</p>
+      <Button onClick={handleUseRecipe} variant="success">
+        Use Recipe
+      </Button>
+      <br />
       <Link href={`/recipe/edit/${recipe.firebaseKey}`} passHref>
         <Button variant="info">EDIT</Button>
       </Link>
+      <br />
     </div>
   );
 }
