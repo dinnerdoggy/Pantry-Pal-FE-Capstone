@@ -18,7 +18,7 @@ function IngredientTable({ ingredientObj, onUpdate }) {
     <tr>
       <td>{ingredientObj.name}</td>
       <td>{ingredientObj.qty}</td>
-      <span className="btn-cell">
+      <td className="btn-cell">
         <Link href={`/ingredient/edit/${ingredientObj.firebaseKey}`} passHref>
           <Button onClick={updateThis} className="btn-cell" variant="info">
             EDIT
@@ -27,7 +27,7 @@ function IngredientTable({ ingredientObj, onUpdate }) {
         <Button className="deleteBtn" onClick={deleteThisIngredient}>
           Delete
         </Button>
-      </span>
+      </td>
     </tr>
   );
 }
