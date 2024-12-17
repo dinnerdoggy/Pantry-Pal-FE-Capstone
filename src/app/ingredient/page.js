@@ -26,13 +26,14 @@ function IngredientsPage() {
   }, []);
 
   return (
-    <div className="text-center my-4">
+    <div className="ingTable text-center my-4">
       <Table striped bordered hover>
         {/* map over ingredients here using IngredientTable component */}
         <thead>
           <tr>
             <th>Ingredient</th>
             <th>Qty</th>
+            <th aria-label="crud" className="btn-cell" />
           </tr>
         </thead>
         <tbody>
