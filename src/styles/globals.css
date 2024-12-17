@@ -43,6 +43,7 @@ html {
   color: #F0C400;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   font-weight: bolder;
+  margin: 0 2rem;
 }
 
 .bgOrange {
@@ -73,6 +74,7 @@ a {
 
 .btn {
   border: none;
+  margin: 0 1px;
 }
 
 .btn-cell {
