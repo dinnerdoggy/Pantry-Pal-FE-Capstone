@@ -30,6 +30,10 @@ html {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
+li {
+  font-size: 1.75rem;
+}
+
 .border {
   background-color: black;
   border: 5px solid black;
