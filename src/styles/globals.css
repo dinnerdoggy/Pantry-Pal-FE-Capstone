@@ -13,6 +13,8 @@ html {
 
 .navbar {
   background-color: #CD0302;
+  font-family: cursive;
+  font-size: 1.5rem;
 }
 
 .navBorder {
@@ -35,6 +37,10 @@ html {
   padding: 5px;
 }
 
+.card {
+  font-family: cursive;
+}
+
 .cardImage {
   border-bottom: 5px solid black;
 }
@@ -43,7 +49,7 @@ html {
   color: #F0C400;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   font-weight: bolder;
-  margin: 0 2rem;
+  margin: 0 2rem 2rem 2rem;
 }
 
 .bgOrange {
@@ -75,6 +81,7 @@ a {
 .btn {
   border: none;
   margin: 0 1px;
+  font-family: cursive;
 }
 
 .btn-cell {
