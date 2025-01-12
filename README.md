@@ -18,7 +18,8 @@ Pantry Pal is a user-friendly application for creating, viewing, updating, and m
 
 ## Screenshots
 ### Sign in
-![image](https://github.com/user-attachments/assets/15521a2f-13fd-4437-94c2-84f012b907c3)
+![image](https://github.com/user-attachments/assets/6ce21f52-0e16-4e88-9125-6c46843c5746)
+
 
 ### Read Recipes
 ![image](https://github.com/user-attachments/assets/dbb05d20-8c97-45b1-b675-bf6a22492415)
