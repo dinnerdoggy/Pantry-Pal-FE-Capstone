@@ -22,12 +22,14 @@ Pantry Pal is a user-friendly application for creating, viewing, updating, and m
 
 
 ### Read Recipes
-![image](https://github.com/user-attachments/assets/dbb05d20-8c97-45b1-b675-bf6a22492415)
-![image](https://github.com/user-attachments/assets/b7e01932-cbdd-4045-920a-c0e805ad1072)
+![image](https://github.com/user-attachments/assets/48d75699-20ba-4aeb-b821-2c08ab73f9eb)
+![image](https://github.com/user-attachments/assets/d02a8c04-0450-41bd-8796-4b19a2e409a9)
+
 
 ### Create / Update Form
-![image](https://github.com/user-attachments/assets/1de30ef6-22fa-4876-86cc-1dc58740d793)
-![image](https://github.com/user-attachments/assets/881a8b29-1216-478a-b72d-20493dbc3aa4)
+![image](https://github.com/user-attachments/assets/c76212ef-3d22-46f8-a618-315803ba56ff)
+![image](https://github.com/user-attachments/assets/ad5db76c-3ba7-4eda-8162-8afb7231e4f9)
+
 
 ## Video Walkthrough of Recipe App <!-- A loom link is sufficient -->
 https://www.loom.com/share/2514808886e74c13aa289ccb4e850920
